@@ -5,9 +5,9 @@ var_dump("国語は？");
 $score2 = trim (fgets(STDIN));
 if ($score1 >= 80 && $score2 >= 80) {
     var_dump("合格です");  
-}elseif ($score1 >= 49 && $score2 >= 80 ) {
+}elseif ($score1 >= 79 xor $score2 >= 50) {
     var_dump("追試です。");
 }
-if ($score1 >= 0 && $score2 <= 49) { 
+if ($score1 >= 0 || $score2 <= 49) { 
     var_dump("不合格です。");
 }
