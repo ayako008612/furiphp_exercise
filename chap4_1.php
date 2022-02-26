@@ -1,10 +1,12 @@
 <?php
-require_once __DIR__ . "/chap4_func.php";
+require_once __DIR__ . "/chap4_area.php";
 $orders = [
-["name" => "三浦" , "cnt"=> 6],
-["name" => "高野" , "cnt"=> 8]
+["上底" , "$top"],
+["下底" , "$bottom"],
+["高さ" , "$height"],
+["面積" , "$area"],
 ];
-foreach ($orders as $order) {
-    $price = getPrice ($order["cnt"]);
-    create_msg ($order["name"] , $price);
+foreach ($msg as $msg) {
+    $area = getPrice ($msg["cnt"]);
+    create_msg ($msg , $area);
 }
