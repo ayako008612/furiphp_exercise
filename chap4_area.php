@@ -10,7 +10,7 @@ EOM;
     echo $msg;
 }
 
-function calc_area (){
+function calc_area ($cnt){
     $area = ('$top' + '$bottom') * '$height' / 2;
     return $area;
 }

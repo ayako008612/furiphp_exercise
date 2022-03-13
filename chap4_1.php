@@ -5,7 +5,7 @@ $orders = [
 ["top" => 40,"bottom" => 50,"height" => 60]
 ];
 foreach($orders as $order){
-    $area = calc_area ($order[]);
+    $area = calc_area ($order["cnt"]);
     create_msg ($order["top"."bottom"."height"],$area);
 }
 ?>
