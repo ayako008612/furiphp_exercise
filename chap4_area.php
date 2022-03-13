@@ -1,14 +1,17 @@
 <?php
-function calc_area($top, $bottom, $height) {
+function display_msg($top, $bottom, $height,$area) {
     $msg = <<<EOM
-{$top}は？
-{$bottom}は？
-{$height}は？
-{面積は} \n
+台形のサイズ
+上底 : {$top}
+下底 : {$bottom}
+高さ : {$height}
+面積 : {$area} \n
 EOM;
     echo $msg;
 }
 
-function display_msg($msg) {
-    return $area =('$top'+ '$bottom') * '$height' / 2;
+function calc_area (){
+    $area = ('$top' + '$bottom') * '$height' / 2;
+    return $area;
 }
+?>

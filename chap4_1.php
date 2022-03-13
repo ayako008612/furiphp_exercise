@@ -1,12 +1,11 @@
 <?php
 require_once __DIR__ . "/chap4_area.php";
 $orders = [
-["上底は？" , "$top" , "cnt" => 10],
-["下底は？" , "$bottom" , "cnt" => 15],
-["高さは？" , "$height" , "cnt" => 20],
-["面積は , ", "$area" , "cnt" => 250],
+["top" => 10,"bottom" => 20,"height" => 30],
+["top" => 40,"bottom" => 50,"height" => 60]
 ];
-foreach ($msg as $msg) {
-    $area = create_msg ($msg , $area);
-    create_msg ($msg , $area);
+foreach($orders as $order){
+    $area = calc_area ($order[]);
+    create_msg ($order["top"."bottom"."height"],$area);
 }
+?>
