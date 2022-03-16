@@ -8,6 +8,8 @@ $sum 円（税込）になります。\n
 EOM;
     echo $msg;
 }
+create_msg($name); 
+
 function add($price,$item1,$item2,$item3){
     $sum = $price + (($item1 + $item2 + $item3) * 0.1);
     return $sum ;

@@ -11,5 +11,4 @@ $bottom = 50;
 $height = 60;
 $area = calc_area($top,$bottom,$height);
 display_msg($top,$bottom,$height,$area);
-;
 ?>
