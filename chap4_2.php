@@ -9,9 +9,9 @@ $item2 = trim( fgets(STDIN));
 var_dump("3つ目の金額を入力");
 $item3 = trim( fgets(STDIN));
 
-$sum = add($price,$item1,$item2,$item3);
-display_msg($item1,$item2,$item3,$sum);
+$sum = add($item1,$item2,$item3);
+display_msg($name,$item1,$item2,$item3);
 
 $price = total_tax($item1,$item2,$item3);
-display_msg($item1,$item2,$item3,$price);
+display_msg($name,$item1,$item2,$item3);
 ?>
