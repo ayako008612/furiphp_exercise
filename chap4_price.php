@@ -8,13 +8,12 @@ $sum 円（税込）になります。\n
 EOM;
     echo $msg;
 }  
-function add($price){
+
+function add($item1,$item2,$item3){
+    $price = $item1 + $item2 + $item3;
+    return $price;
+}
+function total_tax($price){
     $sum = $price * 1.1;
-    return $sum;
+    return floor($sum);
 }
-function total_tax($item1,$item2,$item3){
-    $sum = $item1 + $item2 + $item3;
-    return $sum;
-    floor($sum * 1 / 10);
-}
-?>
