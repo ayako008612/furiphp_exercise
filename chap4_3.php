@@ -7,4 +7,5 @@ $owners = [
 ];
 foreach ($owners as $owner) {
     display_msg($owner);
+
 }
