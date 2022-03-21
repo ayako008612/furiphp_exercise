@@ -2,11 +2,7 @@
 function h($constellation) {
     return htmlspecialchars($constellation, ENT_QUOTES, "UTF-8");
 }
-function signs($month,$day) {
-    $sings = ["牡羊座", "牡牛座", "双子座", "蟹座", "獅子座", "乙女座", "天秤座", "蠍座", "射手座", "山羊座", "水瓶座", "魚座"];
-    return $signs[($name) % 12];
-}
-$sings = filter_input(INPUT_GET, "sings", FILTER_VALIDATE_INT);
+$signs = filter_input(INPUT_GET, "sings", FILTER_VALIDATE_INT);
 
 $signs = [
         ["name" => "牡羊座", "period_start" => [3, 21], "period_end" => [4, 19]],
@@ -23,7 +19,7 @@ $signs = [
         ["name" => "魚座", "period_start" => [2, 19], "period_end" => [3, 20]]
 ];
 foreach($signs as $sign){
-    display_msg($sign)
+    display_msg($sign);
 }
 $start_m = ["period_start"];
 foreach($start_m as $t0){
@@ -31,8 +27,8 @@ foreach($start_m as $t0){
         foreach($end_m as $t0){
             foreach(end_d as $t1){
 }
-if($month = $period_start) && ($day < $period_end){
-}    else ($month = $period_end) && ($day > $period_end) {
+if($month >= $period_start && $day <= $period_end){
+}    else ($month = $period_end && $day > $period_end);
         echo $name;
 }
 '$month,$day' = filter_input(INPUT_GET, "month,day", FILTER_VALIDATE_INT);
@@ -53,13 +49,10 @@ $sign = constellation($sign["period_start"]);{
     <p>月日を入力してください</p>
     <form method="get">
         <label>月</label>:
-        <input name="month" type="number" min="1" max="12 method="<?= h(date("Y")) ?>">
+        <input name="month" type="number" min="1" max="12" method="<?= h(date("Y")) ?>">
         <label>日</label>:
-        <input name="day" type="number" min="1" max="31 method="<?= h(date("Y")) ?>">
-        <input type="OK"<?= h(date("Y")) ?>">
-    </form>       
-    
-
+        <input name="day" type="number" min="1" max="31" method="<?= h(date("Y")) ?>">
+        <input type="OK" >"<?= h(date("Y")) ?>">      
     </form>
 <?php else: ?>
     <p><?= h($month) ?>月<?= h($day) ?>日生まれは<?= sings($name) ?>です。</p>
