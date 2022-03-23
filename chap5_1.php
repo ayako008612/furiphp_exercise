@@ -1,10 +1,9 @@
 <?php
-function h($constellation) {
-    return htmlspecialchars($constellation, ENT_QUOTES, "UTF-8");
+function h($str){
+    return htmlspecialchars($str, ENT_QUOTES, "UTF-8");
 }
-$signs = filter_input(INPUT_GET, "sings", FILTER_VALIDATE_INT);
-
-$signs = [
+function constellation($month,$day){
+    $signs = [  
         ["name" => "牡羊座", "period_start" => [3, 21], "period_end" => [4, 19]],
         ["name" => "牡牛座", "period_start" => [4, 20], "period_end" => [5, 20]],
         ["name" => "双子座", "period_start" => [5, 21], "period_end" => [6, 21]],
@@ -16,25 +15,14 @@ $signs = [
         ["name" => "射手座", "period_start" => [11, 23], "period_end" => [12, 21]],
         ["name" => "山羊座", "period_start" => [12, 22], "period_end" => [1, 19]],
         ["name" => "水瓶座", "period_start" => [1, 20], "period_end" => [2, 18]],
-        ["name" => "魚座", "period_start" => [2, 19], "period_end" => [3, 20]]
-];
-foreach($signs as $sign){
-    display_msg($sign);
+        ["name" => "魚座", "period_start" => [2, 19], "period_end" => [3, 20]],
+foreach ($signs as $sign){
+    if($month >= $period_start && $day <= $period_end){
+}else ($month = $period_end && $day > $period_end);
+return $name;
 }
-$start_m = ["period_start"];
-foreach($start_m as $t0){
-    foreach($start_d as $t1){
-        foreach($end_m as $t0){
-            foreach(end_d as $t1){
-}
-if($month >= $period_start && $day <= $period_end){
-}    else ($month = $period_end && $day > $period_end);
-        echo $name;
-}
-'$month,$day' = filter_input(INPUT_GET, "month,day", FILTER_VALIDATE_INT);
-}
-$sign = constellation($sign["period_start"]);{
-}
+$signs = filter_input(INPUT_GET, "month", FILTER_VALIDATE_INT);
+$signs = filter_input(INPUT_GET, "day", FILTER_VALIDATE_INT);
 ?>
 <!DOCTYPE html>
 <html>
