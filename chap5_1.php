@@ -19,7 +19,7 @@ function constellation($month,$day){
 foreach ($signs as $sign){
     if($month >= $period_start && $day <= $period_end){
 }else ($month = $period_end && $day > $period_end);
-return $name;
+return $sign;
 }
 $signs = filter_input(INPUT_GET, "month", FILTER_VALIDATE_INT);
 $signs = filter_input(INPUT_GET, "day", FILTER_VALIDATE_INT);
