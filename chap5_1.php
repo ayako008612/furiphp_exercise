@@ -15,10 +15,14 @@ function constellation($month,$day){
         ["name" => "射手座", "period_start" => [11, 23], "period_end" => [12, 21]],
         ["name" => "山羊座", "period_start" => [12, 22], "period_end" => [1, 19]],
         ["name" => "水瓶座", "period_start" => [1, 20], "period_end" => [2, 18]],
-        ["name" => "魚座", "period_start" => [2, 19], "period_end" => [3, 20]];
+        ["name" => "魚座", "period_start" => [2, 19], "period_end" => [3, 20]]
+    ];
     foreach ($signs as $sign){
-        if ($month >= $period_start && $day <= $period_end){
-        } else {
+        $start_m = $sign["period_start"][0];
+        $start_d = $sign["period_start"][1];
+        $end_m = $sign["period_end"][0];
+        $end_d = $sign["period_end"][1];
+    if ($month >= $period_start && $day <= $period_end){
     }
 }
 $signs = filter_input(INPUT_GET, "month", FILTER_VALIDATE_INT);
