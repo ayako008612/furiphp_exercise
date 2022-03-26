@@ -1,8 +1,10 @@
 <?php
-function h($str){
+function h($str)
+{
     return htmlspecialchars($str, ENT_QUOTES, "UTF-8");
 }
-function constellation($month,$day){
+function constellation($month,$day)
+{
     $signs = [  
         ["name" => "牡羊座", "period_start" => [3, 21], "period_end" => [4, 19]],
         ["name" => "牡牛座", "period_start" => [4, 20], "period_end" => [5, 20]],
@@ -22,13 +24,15 @@ function constellation($month,$day){
         $start_d = $sign["period_start"][1];
         $end_m = $sign["period_end"][0];
         $end_d = $sign["period_end"][1];
-    if ($month >= $period_start && $day <= $period_end){
+        if (($month == $start_m && $day >= $start_d ) || ( $month == $end_m && $day <= $end_d)) {
+            return $sign["name"];
+        }
     }
-}
-$signs = filter_input(INPUT_GET, "month", FILTER_VALIDATE_INT);
-    $month = constellation($signs);
-$signs = filter_input(INPUT_GET, "day", FILTER_VALIDATE_INT);
-    $day = constellation($signs);
+}    
+
+$month = filter_input(INPUT_GET, "month", FILTER_VALIDATE_INT);
+$day = filter_input(INPUT_GET, "day", FILTER_VALIDATE_INT);
+$sign = constellation($month,$day);
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,18 +40,17 @@ $signs = filter_input(INPUT_GET, "day", FILTER_VALIDATE_INT);
         <title>星座チェック</title>
     </head>
     <body>
-        <h1>星座テェック</h1>
+        <h1>星座チェック</h1>
+        <?php if (empty($month) || empty($day)): ?>
+            <p>月日を入力してください</p>
+            <form method="get">
+                <input type="number" name="month" min="1" max="12">月
+                <input type="number" name="day" min="1" max="31">日
+                <input type="submit" value="ok">      
+            </form>
+        <?php else: ?>
+            <p><?= h($month) . "月" .  h($day) . "日生まれは" . $sings . "です。"?></p>
+        <?php endif; ?>
     </body>
 </html>
-<?php if (empty($month or $day)):?>
-    <p>月日を入力してください</p>
-    <form method="get">
-        <label>月</label>:
-        <input name="month" type="number" min="1" max="12" method="<?= h(date("Y")) ?>">
-        <label>日</label>:
-        <input name="day" type="number" min="1" max="31" method="<?= h(date("Y")) ?>">
-        <input type="OK" >"<?= h(date("Y")) ?>">      
-    </form>
-<?php else: ?>
-    <p><?= h($month) ?>月<?= h($day) ?>日生まれは<?= sings($name) ?>です。</p>
-<?php endif; ?>
+?>
